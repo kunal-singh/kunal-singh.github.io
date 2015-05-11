@@ -1,7 +1,4 @@
 _site
-.sass-cache
-
-_site
 .DS_Store
 .jekyll
 .bundle
@@ -11,4 +8,3 @@ Gemfile.lock
 node_modules
 package.json
 localfiles
-_config.yml
