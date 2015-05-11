@@ -1,0 +1,18 @@
+body
+{
+	margin-bottom: 60px;
+}
+footer
+{
+	height: 60px;
+	position: absolute;
+	bottom: 0;
+}
+.header
+{
+	border-bottom: 1px solid #cccccc;
+}
+.main-content
+{
+	padding-top: 20px;
+}
