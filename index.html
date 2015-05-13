@@ -1,11 +1,14 @@
 ---
 layout: default
-title: 'Kunal Singh'
+title: 'Theory of an insane mind'
 ---
 
-<div class="main-content">
-	<p>This is my portfolio/blog.</p>
-	<p>It is based on the below given technology stack</p>
+<div class="main-content" itemscope itemtype="http://schema.org/Person">
+    <p>Hi,</p>
+    <p>I am <span itemprop="name">{{ site.authorname }}</span></p>
+	<p>I am a <span itemprop="jobTitle">{{ site.data.ownerinfo.jobtitle }}</span>, currently working for <span itmeprop="worksFor">{{ site.data.ownerinfo.organisation }}</span></p>
+	<p>This place is where I'll publish everything about my open source projects hosted on <a href="{{site.data.externallinks.githubprofile }}" itemprop="url">github</a>.</p>
+	<p>It is built using the below given technology stack-</p>
 	<ul>
 		<li>Jekyll</li>
 		<li>GitHub Pages</li>
@@ -15,6 +18,6 @@ title: 'Kunal Singh'
 		<li>Sublime Text</li>
 		<li>Some GB's of creativity and love for the web.</li>
 	</ul>
-
+    <p>Want to contact me? Shoot an email at <span itemprop="email">{{ site.data.ownerinfo.email}}</span></p>
 </div>
 
