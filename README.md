@@ -4,11 +4,11 @@ The source code for [**kunal-singh.github.io**](http://kunal-singh.github.io).
 
 The code is written using [jekyll](http://jekyllrrb.com). Following are the docs/tuts that I followed while learning the same-
 
-+[Jekyll official docs](http://jekyllrb.com/)
+* [Jekyll official docs](http://jekyllrb.com/)
 
  These are good enough to get you started. Follow these step by step and you are good to go.
 
-+[Installation guide for windows](http://jekyll-windows.juthilo.com/)
+* [Installation guide for windows](http://jekyll-windows.juthilo.com/)
 
  At the time of writting this doc, I had not taken the plunge towards Linux. It is actually not that difficult to Install on a typical Windows machine if you get everything right. But there are a few things here and there which can stall your progress. If you have experience with Ruby, it would be a cakewalk i reckon. Fow others, this guide as spot on.
 
@@ -24,8 +24,12 @@ Added some [microdata](http://diveintohtml5.info/extensibility.html) markup and 
 
 ## Colophon
 
-+[Jekyll official docs](http://jekyllrb.com/), the engine
-+[Github Pages](https://pages.github.com/), the zero expense hosting
-+GIT for version control and deployment
-+[H5BP](https://github.com/h5bp/) and [Twitter bootstrap](https://github.com/twbs/bootstrap), the frontend frameweorks that I use 
-+Sublime Text, the most awesome text editor in the world
+* [Jekyll official docs](http://jekyllrb.com/), the engine
+
+* [Github Pages](https://pages.github.com/), the zero expense hosting
+
+* GIT for version control and deployment
+
+* [H5BP](https://github.com/h5bp/) and [Twitter bootstrap](https://github.com/twbs/bootstrap), the frontend frameweorks that I use
+
+* Sublime Text, the most awesome text editor in the world
