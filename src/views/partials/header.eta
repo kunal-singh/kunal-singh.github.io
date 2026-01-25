@@ -1,11 +1,19 @@
 <% /* Header Partial - Available data: it.global, it.header, it.page */ %>
 <header class="site-header <%= it.header.cssClasses ? it.header.cssClasses.join(' ') : '' %>">
   <div class="container header-inner">
-    <a href="/" class="logo">
+    <a href="#home" class="logo">
       <span class="logo-text"><%= it.global.author %></span>
     </a>
     
     <% if (it.header.showNav) { %>
+    <% /* Mobile menu toggle - CSS only */ %>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-input" aria-label="Toggle navigation">
+    <label for="nav-toggle" class="nav-toggle" aria-label="Menu">
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+    </label>
+    
     <nav class="main-nav" aria-label="Main navigation">
       <ul class="nav-list">
         <% it.global.navigation.forEach(function(item) { %>
@@ -20,15 +28,18 @@
         </li>
         <% }) %>
       </ul>
+      
+      <% /* Theme toggle label - linked to the checkbox in body */ %>
+      <label for="theme-switch" class="theme-toggle" title="Toggle theme"></label>
     </nav>
     <% } %>
   </div>
   
   <style>
     .site-header {
-      padding: 1.5rem 0;
-      border-bottom: 1px solid var(--color-border);
-      background: rgba(13, 13, 18, 0.8);
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--theme-border);
+      background: var(--theme-bg-secondary);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       position: sticky;
@@ -40,70 +51,221 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 1rem;
     }
     
     .logo {
       text-decoration: none;
-      color: var(--color-text-primary);
+      color: var(--theme-text-primary);
+      z-index: 102;
     }
     
     .logo-text {
       font-family: var(--font-display);
       font-size: 1.5rem;
-      letter-spacing: 0.02em;
+      letter-spacing: 0.01em;
+      font-weight: 500;
     }
     
     .logo:hover .logo-text {
-      color: var(--color-accent);
+      color: var(--theme-accent);
     }
     
-    .main-nav {
+    /* ============================================
+       MOBILE NAV TOGGLE
+    ============================================ */
+    
+    .nav-toggle-input {
+      display: none;
+    }
+    
+    .nav-toggle {
       display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 2.5rem;
+      height: 2.5rem;
+      padding: 0.5rem;
+      cursor: pointer;
+      z-index: 102;
+      background: var(--theme-bg-elevated);
+      border: 1px solid var(--theme-border);
+      border-radius: 0.5rem;
+      transition: all var(--transition-smooth);
+    }
+    
+    .nav-toggle:hover {
+      border-color: var(--theme-border-strong);
+    }
+    
+    .nav-toggle-bar {
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: var(--theme-text-primary);
+      border-radius: 1px;
+      transition: all var(--transition-smooth);
+      transform-origin: center;
+    }
+    
+    /* Hamburger animation */
+    .nav-toggle-input:checked ~ .nav-toggle .nav-toggle-bar:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+    
+    .nav-toggle-input:checked ~ .nav-toggle .nav-toggle-bar:nth-child(2) {
+      opacity: 0;
+    }
+    
+    .nav-toggle-input:checked ~ .nav-toggle .nav-toggle-bar:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+    
+    /* ============================================
+       MOBILE NAVIGATION
+    ============================================ */
+    
+    .main-nav {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 100%;
+      max-width: 20rem;
+      height: 100vh;
+      background: var(--theme-bg-secondary);
+      border-left: 1px solid var(--theme-border);
+      padding: 5rem 1.5rem 2rem;
+      transform: translateX(100%);
+      transition: transform var(--transition-smooth);
+      z-index: 101;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    
+    .nav-toggle-input:checked ~ .main-nav {
+      transform: translateX(0);
+    }
+    
+    /* Overlay */
+    .nav-toggle-input:checked ~ .main-nav::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 100%;
+      bottom: 0;
+      width: 100vw;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: -1;
     }
     
     .nav-list {
       display: flex;
-      gap: 2rem;
+      flex-direction: column;
+      gap: 0.5rem;
       list-style: none;
+      padding: 0;
+      margin: 0;
     }
     
     .nav-link {
-      color: var(--color-text-secondary);
-      font-size: 0.9375rem;
+      display: block;
+      color: var(--theme-text-secondary);
+      font-size: 1rem;
       font-weight: 500;
       letter-spacing: 0.01em;
-      padding: 0.5rem 0;
-      position: relative;
-    }
-    
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: var(--color-accent);
-      transition: width var(--transition-smooth);
+      padding: 0.75rem 1rem;
+      border-radius: 0.5rem;
+      transition: all var(--transition-smooth);
     }
     
     .nav-link:hover,
     .nav-link--active {
-      color: var(--color-text-primary);
+      color: var(--theme-text-primary);
+      background: var(--theme-accent-subtle);
     }
     
-    .nav-link:hover::after,
-    .nav-link--active::after {
-      width: 100%;
+    /* Close nav when clicking a link (on mobile) */
+    .nav-list .nav-link {
+      position: relative;
     }
     
-    @media (max-width: 640px) {
+    /* ============================================
+       DESKTOP NAVIGATION (768px+)
+    ============================================ */
+    
+    @media (min-width: 768px) {
+      .nav-toggle,
+      .nav-toggle-input {
+        display: none;
+      }
+      
+      .main-nav {
+        position: static;
+        width: auto;
+        max-width: none;
+        height: auto;
+        background: transparent;
+        border: none;
+        padding: 0;
+        transform: none;
+        flex-direction: row;
+        align-items: center;
+        gap: 2rem;
+      }
+      
+      .main-nav::before {
+        display: none !important;
+      }
+      
       .nav-list {
-        gap: 1rem;
+        flex-direction: row;
+        gap: 0.25rem;
       }
       
       .nav-link {
-        font-size: 0.875rem;
+        font-size: 0.9375rem;
+        padding: 0.5rem 0.875rem;
+        position: relative;
+      }
+      
+      .nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        background: var(--theme-accent);
+        transition: all var(--transition-smooth);
+        transform: translateX(-50%);
+        border-radius: 1px;
+      }
+      
+      .nav-link:hover::after,
+      .nav-link--active::after {
+        width: 100%;
+      }
+      
+      .nav-link:hover,
+      .nav-link--active {
+        background: transparent;
+      }
+    }
+    
+    /* ============================================
+       LARGE DESKTOP (1024px+)
+    ============================================ */
+    
+    @media (min-width: 1024px) {
+      .nav-list {
+        gap: 0.5rem;
+      }
+      
+      .nav-link {
+        padding: 0.5rem 1rem;
       }
     }
   </style>

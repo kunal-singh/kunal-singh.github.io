@@ -9,22 +9,17 @@ import type { GlobalData } from "jsr:@kunal-singh/cometa";
 
 const globalData: GlobalData = {
   siteTitle: "Kunal Singh",
-  siteDescription: "Senior Software Engineer - Building elegant solutions to complex problems",
+  siteDescription: "Full-Stack Developer",
   author: "Kunal Singh",
   baseUrl: "https://kunal-singh.com",
   year: new Date().getFullYear(),
   
-  navigation: [
-    { label: "Home", href: "/" },
-    { label: "About", href: "/about" },
-    { label: "Projects", href: "/projects" },
-    { label: "Contact", href: "/contact" },
-  ],
-  
   social: {
     github: "kunal-singh",
-    linkedin: "kunal-singh",
+    linkedin: "kunal-singh-94007873",
     email: "hi@kunal-singh.com",
+    phone: "+91 9999805634",
+    location: "Noida, India",
   },
 };
 

@@ -1,0 +1,10 @@
+<% /* Experience Card Partial - Available data: it (experience item) */ %>
+<div class="timeline-item">
+  <div class="timeline-marker<%= it.current ? ' timeline-marker--current' : '' %>"></div>
+  <article class="experience-card">
+    <span class="experience-date"><%= it.dateRange %></span>
+    <h3 class="experience-title"><%= it.title %></h3>
+    <p class="experience-company"><%= it.company %></p>
+    <p class="experience-description"><%= it.description %></p>
+  </article>
+</div>
