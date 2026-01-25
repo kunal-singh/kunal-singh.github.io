@@ -6,7 +6,7 @@
 <section class="hero">
   <div class="container">
     <div class="hero-avatar">
-      <img src="<%= it.content.hero.photo %>" alt="<%= it.content.hero.name %>" />
+      <%= it.content.hero.initials || 'KS' %>
     </div>
     <h1 class="hero-name"><%= it.content.hero.name %></h1>
     <p class="hero-tagline"><%= it.content.hero.tagline %></p>

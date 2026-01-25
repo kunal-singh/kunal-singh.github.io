@@ -139,17 +139,17 @@
       width: 8rem;
       height: 8rem;
       border-radius: 50%;
-      overflow: hidden;
+      background: var(--color-bg-card);
       border: 3px solid var(--color-border);
       margin: 0 auto 2rem;
       box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
-    }
-    
-    .hero-avatar img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 500;
+      color: var(--color-text-secondary);
     }
     
     .hero-name {
@@ -379,6 +379,7 @@
       .hero-avatar {
         width: 10rem;
         height: 10rem;
+        font-size: 2.5rem;
       }
     }
   </style>

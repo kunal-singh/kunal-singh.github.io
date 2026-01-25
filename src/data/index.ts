@@ -19,7 +19,7 @@ const indexPage = createPageTemplate<IndexContentData>({
   
   content: {
     hero: {
-      photo: "profile-photo.jpeg",
+      initials: "KS",
       name: "Kunal Singh",
       tagline: "Full-Stack Developer",
       description: "Crafting digital experiences with clean code and thoughtful architecture. Passionate about building products that make a difference.",
