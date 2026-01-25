@@ -5,7 +5,7 @@
  * Individual pages can override these values.
  */
 
-import type { HeaderData } from "@kunal-singh/cometa";
+import type { HeaderData } from "jsr:@kunal-singh/cometa";
 
 const headerDefaults: Partial<HeaderData> = {
   showNav: true,

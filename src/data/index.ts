@@ -5,7 +5,7 @@
  * This is merged with global data to form the complete page context.
  */
 
-import { createPageTemplate, type IndexContentData } from "@kunal-singh/cometa";
+import { createPageTemplate, type IndexContentData } from "jsr:@kunal-singh/cometa";
 
 const indexPage = createPageTemplate<IndexContentData>({
   id: "index",

@@ -5,7 +5,7 @@
  * It's loaded once and merged with page-specific data.
  */
 
-import type { GlobalData } from "@kunal-singh/cometa";
+import type { GlobalData } from "jsr:@kunal-singh/cometa";
 
 const globalData: GlobalData = {
   siteTitle: "Kunal Singh",

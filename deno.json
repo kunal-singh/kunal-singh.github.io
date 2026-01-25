@@ -1,9 +1,9 @@
 {
   "tasks": {
-    "dev": "deno run --allow-read --allow-write --allow-net build.ts --dev",
-    "build": "deno run --allow-read --allow-write build.ts"
+   "build": "deno run --allow-read --allow-write jsr:@kunal-singh/cometa/cli build",
+    "dev": "deno run --allow-read --allow-write --allow-net jsr:@kunal-singh/cometa/cli dev"
   },
   "imports": {
-    "@kunal-singh/cometa": "jsr:@kunal-singh/cometa@^0.3.0"
+    "@kunal-singh/cometa": "jsr:@kunal-singh/cometa@^0.4.0"
   }
 }

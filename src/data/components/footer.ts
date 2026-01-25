@@ -5,7 +5,7 @@
  * Individual pages can override these values.
  */
 
-import type { FooterData } from "@kunal-singh/cometa";
+import type { FooterData } from "jsr:@kunal-singh/cometa";
 
 const footerDefaults: Partial<FooterData> = {
   showSocial: true,
