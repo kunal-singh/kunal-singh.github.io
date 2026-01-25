@@ -1,7 +1,7 @@
 {
   "tasks": {
-    "dev": "deno run --watch main.ts",
-    "build": "deno run --allow-read --allow-write src/build.ts"
+    "dev": "deno run --allow-read --allow-write --allow-net build-system/build.ts --dev",
+    "build": "deno run --allow-read --allow-write build-system/build.ts"
   },
   "imports": {
     "@bgub/eta": "jsr:@bgub/eta@^4.5.0"

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= it.page.title %></title>
+  
+  <% /* Meta tags for SEO */ %>
+  <% if (it.meta.description) { %>
+  <meta name="description" content="<%= it.meta.description %>">
+  <% } %>
+  <% if (it.meta.keywords && it.meta.keywords.length > 0) { %>
+  <meta name="keywords" content="<%= it.meta.keywords.join(', ') %>">
+  <% } %>
+  <% if (it.meta.canonical) { %>
+  <link rel="canonical" href="<%= it.meta.canonical %>">
+  <% } %>
+  
+  <% /* Open Graph tags */ %>
+  <meta property="og:title" content="<%= it.page.title %>">
+  <meta property="og:description" content="<%= it.meta.description || it.global.siteDescription %>">
+  <meta property="og:type" content="website">
+  <% if (it.meta.ogImage) { %>
+  <meta property="og:image" content="<%= it.meta.ogImage %>">
+  <% } %>
+  
+  <style>
+    :root {
+      --color-bg-primary: #0d0d12;
+      --color-bg-secondary: #141419;
+      --color-text-primary: #f5f5f7;
+      --color-text-secondary: #8e8e93;
+      --color-accent: #64d2ff;
+      --color-accent-hover: #40c8e0;
+      --color-border: rgba(255, 255, 255, 0.1);
+      --font-display: 'DM Serif Display', Georgia, serif;
+      --font-body: 'Outfit', -apple-system, sans-serif;
+      --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Outfit:wght@300;400;500;600&display=swap');
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    html {
+      font-size: 16px;
+    }
+    
+    body {
+      font-family: var(--font-body);
+      font-weight: 400;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: var(--color-bg-primary);
+      color: var(--color-text-primary);
+      line-height: 1.6;
+    }
+    
+    /* Subtle animated background */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        radial-gradient(ellipse 80% 50% at 20% -20%, rgba(100, 210, 255, 0.08) 0%, transparent 50%),
+        radial-gradient(ellipse 60% 40% at 80% 100%, rgba(100, 210, 255, 0.05) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: -1;
+    }
+    
+    a {
+      color: var(--color-accent);
+      text-decoration: none;
+      transition: color var(--transition-smooth);
+    }
+    
+    a:hover {
+      color: var(--color-accent-hover);
+    }
+    
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    
+    main {
+      flex: 1;
+    }
+  </style>
+</head>
+<body>
+  <%~ include("../partials/header", it) %>
+  
+  <main>
+    <%~ include("../pages/" + it.page.id, it) %>
+  </main>
+  
+  <%~ include("../partials/footer", it) %>
+</body>
+</html>
