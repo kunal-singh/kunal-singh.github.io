@@ -5,7 +5,7 @@
  * Individual pages can override these values.
  */
 
-import type { FooterData } from "../../build-system/types.ts";
+import type { FooterData } from "@kunal-singh/cometa";
 
 const footerDefaults: Partial<FooterData> = {
   showSocial: true,

@@ -1,9 +1,9 @@
 {
   "tasks": {
-    "dev": "deno run --allow-read --allow-write --allow-net build-system/build.ts --dev",
-    "build": "deno run --allow-read --allow-write build-system/build.ts"
+    "dev": "deno run --allow-read --allow-write --allow-net build.ts --dev",
+    "build": "deno run --allow-read --allow-write build.ts"
   },
   "imports": {
-    "@bgub/eta": "jsr:@bgub/eta@^4.5.0"
+    "@kunal-singh/cometa": "jsr:@kunal-singh/cometa@^0.3.0"
   }
 }
